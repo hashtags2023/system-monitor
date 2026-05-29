@@ -20,7 +20,15 @@ The bot can answer general questions using OpenAI, fetch weather data, and monit
 
 ## 📂 Project Structure
 
----
+system-monitor/
+│
+├── ai_system_bot.py # Main chatbot with OpenAI & weather integration
+├── ai_system_bot_v2.py # Improved version with enhanced response handling
+├── monitor.py # System resource monitoring (CPU, memory, disk)
+├── plot_logs.py # Visualizes system log data as charts
+├── requirements.txt # Project dependencies
+├── .gitignore # Excluded files (venv, .env, logs, large files)
+└── README.md # Project documentation
 
 ---
 
@@ -90,6 +98,6 @@ This project is licensed under the MIT License.
 
 ---
 
-````yaml
+```yaml
 
-````
+```
