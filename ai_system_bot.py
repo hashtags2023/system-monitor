@@ -210,7 +210,11 @@ def bot_response(user_input):
     elif cmd == "disk":
         return f"Disk usage is {stats['disk']}%, threshold is 90%."
     elif cmd == "network":
-        return f"Network bytes transferred: {stats['network_bytes']}"
+        total_mb = round(stats['network_bytes'] / (1024 * 1024), 2)
+        sent_mb = stats.get('network_sent_mb', 'N/A')
+        recv_mb = stats.get('network_recv_mb', 'N/A')
+        return (f"🌐 Network Usage — Total: {total_mb} MB | "
+                f"Sent: {sent_mb} MB | Received: {recv_mb} MB")
     elif cmd == "joke":
         return get_joke()
     elif cmd in ["hello", "hi"]:

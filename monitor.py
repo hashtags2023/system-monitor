@@ -14,9 +14,16 @@ def log_system_stats():
     cpu = psutil.cpu_percent(interval=1)
     memory = psutil.virtual_memory().percent
     disk = psutil.disk_usage('/').percent
-    net = psutil.net_io_counters().bytes_sent + psutil.net_io_counters().bytes_recv
-
-    data = {"time": timestamp, "cpu": cpu, "memory": memory, "disk": disk, "network_bytes": net}
+    net = psutil.net_io_counters()
+    data = {
+        "time": timestamp,
+        "cpu": cpu,
+        "memory": memory,
+        "disk": disk,
+        "network_bytes": net.bytes_sent + net.bytes_recv,
+        "network_sent_mb": round(net.bytes_sent / (1024 * 1024), 2),
+        "network_recv_mb": round(net.bytes_recv / (1024 * 1024), 2)
+    }
     df = pd.DataFrame([data])
     df.to_csv(LOG_FILE, mode='a', header=not pd.io.common.file_exists(LOG_FILE), index=False)
 
