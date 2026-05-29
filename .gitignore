@@ -1,0 +1,45 @@
+# --------------------------
+# Python
+# --------------------------
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.pyc
+
+# --------------------------
+# Virtual Environment
+# --------------------------
+venv/
+venv_ai/
+env/
+temp-repo
+*.dylib
+
+# --------------------------
+# Environment files
+# --------------------------
+.env
+
+# --------------------------
+# macOS / OS-specific files
+# --------------------------
+.DS_Store
+
+# --------------------------
+# Large files
+# --------------------------
+*.sqlite3
+*.log
+*.csv
+
+# Ignore system logs (optional)
+system_logs.csv
+
+# Ignore large models (if downloaded locally)
+*.pt
+*.bin
+*.dylib
+
+temp-repo/
+
