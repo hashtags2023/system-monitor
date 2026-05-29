@@ -126,8 +126,8 @@ def closest_command(user_input):
 # --------------------------
 # Weather API setup
 # --------------------------
-#OPENWEATHER_KEY = os.getenv("OPENWEATHER_KEY")
-#WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
+OPENWEATHER_KEY = os.getenv("OPENWEATHER_KEY")
+WEATHER_API_URL = "https://api.openweathermap.org/data/2.5/weather"
 
 from difflib import get_close_matches
 
