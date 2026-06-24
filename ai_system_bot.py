@@ -118,7 +118,7 @@ def ai_response_openai(user_input, retries=3):
 # Command fuzzy matching
 # --------------------------
 def closest_command(user_input):
-    commands = ["cpu", "memory", "disk", "network", "joke", "hello", "hi", "how are you", "weather"]
+    commands = ["cpu", "memory", "disk", "network", "joke", "hello", "hi", "how are you", "weather", "help"]
     match = difflib.get_close_matches(user_input.lower(), commands, n=1, cutoff=0.6)
     return match[0] if match else None
 
@@ -220,6 +220,18 @@ def bot_response(user_input):
         return "Hello! How can I help you today? 😄"
     elif cmd == "how are you":
         return "I'm a bot, but I'm running smoothly! How about you?"
+    elif cmd == "help":
+            return (
+                "🤖 Available commands:\n"
+                "  • cpu       — Check CPU usage\n"
+                "  • memory    — Check memory usage\n"
+                "  • disk      — Check disk space\n"
+                "  • network   — Check network usage\n"
+                "  • weather   — Get weather (e.g. 'weather in Sacramento')\n"
+                "  • joke      — Tell a joke\n"
+                "  • help      — Show this help message\n"
+                "  • quit      — Exit the bot"
+            )
     elif "weather" in user_input.lower():
         city = user_input.lower().replace("weather", "").strip() or "New York"
         return get_weather(city)
